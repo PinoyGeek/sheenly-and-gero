@@ -257,7 +257,7 @@ export function Details() {
         >
           <div className="relative h-64 sm:h-80 md:h-96 w-full">
             <Image
-              src="/Details/Holy Rosary Parish Church Angeles Pampanga.jpg"
+              src="/Details/image.png"
               alt={ceremonyLocationFormatted}
               fill
               className="object-cover"
