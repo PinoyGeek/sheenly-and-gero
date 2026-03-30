@@ -99,11 +99,7 @@ const ROLE_CATEGORY_ORDER = [
   "Flower Girls",
 ]
 
-const HIDDEN_ROLE_CATEGORIES = new Set([
-  "Candle Sponsors",
-  "Veil Sponsors",
-  "Cord Sponsors",
-])
+const HIDDEN_ROLE_CATEGORIES = new Set<string>([])
 
 function normalizeRoleCategory(category: string): string {
   const normalized = category.trim()
@@ -263,10 +259,10 @@ export function Entourage() {
           style={{ background: 'linear-gradient(to right, transparent, color-mix(in srgb, var(--color-motif-silver) 21%, transparent), transparent)' }}
         />
         <p
-          className={`relative text-[11px] sm:text-[13px] md:text-sm lg:text-base font-semibold ${textAlign} transition-all duration-300`}
+          className={`relative text-[10px] sm:text-[11.5px] md:text-[12.5px] lg:text-[13.5px] font-semibold ${textAlign} transition-all duration-300`}
           style={{ color: palette.deep }}
         >
-          {member.Name}
+          {member.Name.toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase())}
         </p>
         {showRole && member.RoleTitle && (
           <p
@@ -298,7 +294,7 @@ export function Entourage() {
       return (
         <div className="mb-2 sm:mb-2.5 md:mb-3">
           <SectionTitle>{singleTitle}</SectionTitle>
-          <div className={`grid grid-cols-1 min-[350px]:grid-cols-2 gap-x-6 sm:gap-x-8 md:gap-x-12 gap-y-0.5 sm:gap-y-1 md:gap-y-1 ${centerContent ? 'max-w-2xl mx-auto' : ''}`}>
+          <div className={`grid grid-cols-1 min-[350px]:grid-cols-2 gap-x-3 sm:gap-x-4 md:gap-x-6 gap-y-0.5 sm:gap-y-1 md:gap-y-1 ${centerContent ? 'max-w-2xl mx-auto' : ''}`}>
             {children}
           </div>
         </div>
@@ -307,15 +303,15 @@ export function Entourage() {
 
     return (
       <div className="mb-2 sm:mb-2.5 md:mb-3">
-        <div className="grid grid-cols-1 min-[350px]:grid-cols-2 gap-x-8 sm:gap-x-12 md:gap-x-16 mb-2 sm:mb-2.5 md:mb-3">
+        <div className="grid grid-cols-1 min-[350px]:grid-cols-2 gap-x-3 sm:gap-x-4 md:gap-x-6 mb-2 sm:mb-2.5 md:mb-3">
           {leftTitle && (
-            <SectionTitle align="right" className="pr-2 sm:pr-3 md:pr-4">{leftTitle}</SectionTitle>
+            <SectionTitle align="right" className="pr-1 sm:pr-1.5 md:pr-2">{leftTitle}</SectionTitle>
           )}
           {rightTitle && (
-            <SectionTitle align="left" className="pl-2 sm:pl-3 md:pl-4">{rightTitle}</SectionTitle>
+            <SectionTitle align="left" className="pl-1 sm:pl-1.5 md:pl-2">{rightTitle}</SectionTitle>
           )}
         </div>
-        <div className={`grid grid-cols-1 min-[350px]:grid-cols-2 gap-x-6 sm:gap-x-8 md:gap-x-12 gap-y-0.5 sm:gap-y-1 md:gap-y-1 ${centerContent ? 'max-w-2xl mx-auto' : ''}`}>
+        <div className={`grid grid-cols-1 min-[350px]:grid-cols-2 gap-x-3 sm:gap-x-4 md:gap-x-6 gap-y-0.5 sm:gap-y-1 md:gap-y-1 ${centerContent ? 'max-w-2xl mx-auto' : ''}`}>
           {children}
         </div>
       </div>
@@ -788,70 +784,54 @@ export function Entourage() {
                   return null
                 }
 
-                // Special handling: Add "Secondary Sponsors" label above Candle Sponsors
-                if (category === "Candle Sponsors") {
+                // Secondary Sponsors block: render all three groups under one heading
+                if (category === "Candle Sponsors" || category === "Veil Sponsors" || category === "Cord Sponsors") {
+                  // Only render the full block once — when processing the first one that exists in order
+                  const secondarySponsorGroups = ["Candle Sponsors", "Veil Sponsors", "Cord Sponsors"] as const
+                  const firstPresentGroup = secondarySponsorGroups.find((g) => (grouped[g]?.length ?? 0) > 0)
+                  if (category !== firstPresentGroup) return null
+
+                  const renderPairedGroup = (groupName: string) => {
+                    const grpMembers = grouped[groupName] || []
+                    if (grpMembers.length === 0) return null
+                    return (
+                      <div key={groupName} className="mb-2 sm:mb-2.5 md:mb-3">
+                        <TwoColumnLayout singleTitle={groupName} centerContent={true}>
+                          {grpMembers.length === 2 ? (
+                            <>
+                              <div className="px-1.5 sm:px-2 md:px-2.5">
+                                <NameItem member={grpMembers[0]} align="right" />
+                              </div>
+                              <div className="px-1.5 sm:px-2 md:px-2.5">
+                                <NameItem member={grpMembers[1]} align="left" />
+                              </div>
+                            </>
+                          ) : (
+                            <div className="col-span-full">
+                              <div className="max-w-sm mx-auto flex flex-col items-center gap-0.5 sm:gap-1 md:gap-1">
+                                {grpMembers.map((member, idx) => (
+                                  <NameItem key={`${groupName}-${idx}-${member.Name}`} member={member} align="center" />
+                                ))}
+                              </div>
+                            </div>
+                          )}
+                        </TwoColumnLayout>
+                      </div>
+                    )
+                  }
+
                   return (
-                    <div key={category}>
+                    <div key="SecondarySponsorBlock">
                       {categoryIndex > 0 && (
                         <div className="flex justify-center py-2 sm:py-2.5 md:py-3 mb-2 sm:mb-2.5 md:mb-3">
                           <div className="w-full max-w-md h-px" style={{ background: 'linear-gradient(to right, transparent, color-mix(in srgb, var(--color-motif-medium) 31%, transparent), transparent)' }}></div>
                         </div>
                       )}
-                      {/* Secondary Sponsors label */}
-                      <div className="mb-1.5 sm:mb-2 md:mb-2.5">
+                      {/* Parent heading */}
+                      <div className="mb-2 sm:mb-2.5 md:mb-3">
                         <SectionTitle>Secondary Sponsors</SectionTitle>
                       </div>
-                      <TwoColumnLayout singleTitle={category} centerContent={true}>
-                        {(() => {
-                          const PAIRED_SECTIONS = new Set(["Candle Sponsors", "Cord Sponsors", "Veil Sponsors"])
-                          if (PAIRED_SECTIONS.has(category) && members.length === 2) {
-                            const left = members[0]
-                            const right = members[1]
-                            return (
-                              <>
-                                <div className="px-1.5 sm:px-2 md:px-2.5">
-                                  <NameItem member={left} align="right" />
-                                </div>
-                                <div className="px-1.5 sm:px-2 md:px-2.5">
-                                  <NameItem member={right} align="left" />
-                                </div>
-                              </>
-                            )
-                          }
-                          if (members.length <= 2) {
-                            return (
-                              <div className="col-span-full">
-                                <div className="max-w-sm mx-auto flex flex-col items-center gap-0.5 sm:gap-1 md:gap-1">
-                                  {members.map((member, idx) => (
-                                    <NameItem key={`${category}-${idx}-${member.Name}`} member={member} align="center" />
-                                  ))}
-                                </div>
-                              </div>
-                            )
-                          }
-                          // Default two-column sections: render row-by-row pairs
-                          const half = Math.ceil(members.length / 2)
-                          const left = members.slice(0, half)
-                          const right = members.slice(half)
-                          const maxLen = Math.max(left.length, right.length)
-                          const rows = []
-                          for (let i = 0; i < maxLen; i++) {
-                            const l = left[i]
-                            const r = right[i]
-                            rows.push(
-                              <React.Fragment key={`${category}-row-${i}`}>
-                                <div key={`${category}-cell-left-${i}`} className="px-1.5 sm:px-2 md:px-2.5">
-                                  {l ? <NameItem member={l} align="right" /> : <div className="py-0.5 sm:py-1 md:py-1.5" />}
-                                </div>
-                                <div key={`${category}-cell-right-${i}`} className="px-1.5 sm:px-2 md:px-2.5">
-                                  {r ? <NameItem member={r} align="left" /> : <div className="py-0.5 sm:py-1 md:py-1.5" />}
-                                </div>
-                              </React.Fragment>
-                            )
-                          }
-                          return rows
-                        })()}
-                      </TwoColumnLayout>
+                      {secondarySponsorGroups.map(renderPairedGroup)}
                     </div>
                   )
                 }
