@@ -70,8 +70,13 @@ const IMAGE_EXTENSIONS = new Set([
   ".JPG", ".JPEG", ".PNG", ".WEBP",
 ])
 
+const VIDEO_EXTENSIONS = new Set([
+  ".mp4", ".mov", ".webm", ".avi", ".mkv", ".ogv",
+  ".MP4", ".MOV", ".WEBM",
+])
+
 /** Folders inside /public that should never be uploaded */
-const SKIP_FOLDERS = new Set(["favicon_io", "background_music"])
+const SKIP_FOLDERS = new Set(["favicon_io"])
 
 // Concurrent uploads per batch — keep low to respect Cloudinary rate limits
 const BATCH_SIZE = 5
@@ -96,9 +101,9 @@ function slugify(name: string): string {
 }
 
 /**
- * Returns every image file under `dir` (recursive), skipping SKIP_FOLDERS.
+ * Returns every image and video file under `dir` (recursive), skipping SKIP_FOLDERS.
  */
-function collectImageFiles(dir: string): string[] {
+function collectMediaFiles(dir: string): string[] {
   const results: string[] = []
 
   function walk(current: string): void {
@@ -108,7 +113,8 @@ function collectImageFiles(dir: string): string[] {
       if (entry.isDirectory()) {
         if (!SKIP_FOLDERS.has(entry.name)) walk(fullPath)
       } else if (entry.isFile()) {
-        if (IMAGE_EXTENSIONS.has(path.extname(entry.name))) {
+        const ext = path.extname(entry.name)
+        if (IMAGE_EXTENSIONS.has(ext) || VIDEO_EXTENSIONS.has(ext)) {
           results.push(fullPath)
         }
       }
@@ -117,6 +123,10 @@ function collectImageFiles(dir: string): string[] {
 
   walk(dir)
   return results
+}
+
+function isVideoFile(filePath: string): boolean {
+  return VIDEO_EXTENSIONS.has(path.extname(filePath))
 }
 
 /**
@@ -191,9 +201,9 @@ function parseArgs(argv: string[]): CliOptions {
 // Upload logic
 // ---------------------------------------------------------------------------
 
-async function resourceExists(publicId: string): Promise<boolean> {
+async function resourceExists(publicId: string, resourceType: "image" | "video"): Promise<boolean> {
   try {
-    await cloudinary.api.resource(publicId)
+    await cloudinary.api.resource(publicId, { resource_type: resourceType })
     return true
   } catch {
     return false
@@ -206,13 +216,14 @@ async function uploadFile(
   options: { overwrite: boolean; dryRun: boolean }
 ): Promise<UploadResult> {
   const folder = path.dirname(publicId)
+  const resourceType = isVideoFile(filePath) ? "video" : "image"
 
   if (options.dryRun) {
     return { filePath, publicId, url: "(dry-run)", folder, status: "uploaded" }
   }
 
   if (!options.overwrite) {
-    const exists = await resourceExists(publicId)
+    const exists = await resourceExists(publicId, resourceType)
     if (exists) {
       console.log(`  ✓ skip    — ${publicId}`)
       return { filePath, publicId, url: "", folder, status: "skipped" }
@@ -222,6 +233,7 @@ async function uploadFile(
   try {
     const result = await cloudinary.uploader.upload(filePath, {
       public_id: publicId,
+      resource_type: resourceType,
       overwrite: options.overwrite,
       use_filename: false,
       unique_filename: false,
@@ -300,12 +312,15 @@ async function main(): Promise<void> {
     process.exit(1)
   }
 
-  const files = collectImageFiles(opts.sourceDir)
+  const files = collectMediaFiles(opts.sourceDir)
+  const imageCount = files.filter((f) => !isVideoFile(f)).length
+  const videoCount = files.filter((f) => isVideoFile(f)).length
 
   console.log(`\n☁️  Cloudinary upload`)
   console.log(`   Project  : "${opts.project}" → ${ROOT_NAMESPACE}/${projectSlug}`)
   console.log(`   Source   : ${opts.sourceDir}`)
-  console.log(`   Images   : ${files.length}`)
+  console.log(`   Images   : ${imageCount}`)
+  console.log(`   Videos   : ${videoCount}`)
   console.log(`   Overwrite: ${opts.overwrite}`)
   console.log(`   Dry-run  : ${opts.dryRun}\n`)
 
