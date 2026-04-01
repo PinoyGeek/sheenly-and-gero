@@ -8,15 +8,15 @@ export const siteConfig = {
     backgroundMusic:"/background_music/Ed Sheeran - The Joker And The Queen (Lyrics) feat. Taylor Swift.mp3"
   },
   googleAPI:{
-    messageForm: "https://docs.google.com/forms/d/e/1FAIpQLSd2sps-PpnZlAHaz1OgYhEoG3H6bP-pYxPxIOWNt6TIZJJ1Dw/formResponse", //done
-    message: "https://script.google.com/macros/s/AKfycbzI-4aR1C08e4RyXmxidBKlCB0-l0NbYD-nDmQYqxRk30eZpW3i6c8DEglaT-tmMhw4/exec", //done
-    guestList: "https://script.google.com/macros/s/AKfycbyMiSuYuMrp1EoRnhLrIbnHti4XAydEIjsf-oFTsUhmB0b8IPquHugaw6HmRHUalgsO/exec", //done
-    guestRequest: "https://script.google.com/macros/s/AKfycby5Z84vBpLWU-WDDT4x49inzYII3BTN4aLlO5C4yrN2a1QRUTsKLdrhOqRusQDU4Awy/exec", //done
-    entourage: "https://script.google.com/macros/s/AKfycbziTwqV5_ycPUxUgtkg7VmsZT_j7kXgjbspj0c10WjlAf6FyuOsmcxDgbEjo1PBgnVY/exec", //done
-    sponsors: "https://script.google.com/macros/s/AKfycbwc2OI4ntKkLwx8yrWzL1Spu40O2YGoTaI0su8p8h9wKAvrAoUqKyuwbm4UnQsv_xcN/exec", //done
-    weddingDetails: "https://script.google.com/macros/s/AKfycbwoPm17iVHjUsqRLJd1M0LBxPL8KM3kMNjv4sHePR3CqCwa5r3SSqsAL3KkmHDC-yxY/exec", //done
+    messageForm: "https://docs.google.com/forms/d/e/1FAIpQLSdPZF19eDFEuIJ4szHAwxEFzFPn5BLQNoLmga5TekcFAufqlg/formResponse", //done
+    message: "https://script.google.com/macros/s/AKfycbzT9sI8AOJaPPNlpPlUORtCtOwxA9ldMRzaMxnCe5gbqYDaEQIoPbhNJsOhcRe84JqQ/exec",  //done
+    guestList: "https://script.google.com/macros/s/AKfycbzcvj1Ew__cZY3NfPf2NoKg6ip_dqBI6kX4GElqr0gEYiamlRa4LPCk6cVzqDTaQnXB/exec", //done
+    guestRequest: "https://script.google.com/macros/s/AKfycbyMQOByTM61JyQeoMcpqvS0QZcX9TlZFxrl-ivU5fRVI96_zXaM0VMQIWKFIpwRfsuK/exec", //done
+    entourage: "https://script.google.com/macros/s/AKfycbzKtb2jlOlZa5k1x2oVVwggyZzXEJkRwf8df6VSdC1e0SGvO9c8mR6EvqH8qotqw2jS/exec", //done
+    sponsors: "https://script.google.com/macros/s/AKfycbzGY-SbLnr1Q63neiE3O21n4kZGUgH_Wpo3ReSHdJlAQYDe0oguWxbdospXoM0xFhlO/exec", //done
+    weddingDetails: "https://script.google.com/macros/s/AKfycbxmYCGF9ovADWLWVQqOi3K1TPuKxYgHiRZD_NcsDgfElqC12Zql8yXl6BqgqDQbrJKp/exec", //done
 ////google share 
-    googleShare: "https://docs.google.com/spreadsheets/d/1SDjlC_uFesf7fuDXnfsehkhdIsiCwd7IVrAL4yzGHuM/edit?usp=sharing",
+    googleShare: "https://docs.google.com/spreadsheets/d/1RAMcRhStUKsElP9CvcZzP1lNizPxQ9uWGMeoJwA8sGM/edit?usp=sharing",
   },
   wedding: {
     date: "May 10,2026",
@@ -111,7 +111,7 @@ Now, as they prepare to say yes before God and the people they love most, Cather
     secondary: "#F5F5DC",
   },
   snapShare: {
-    googleDriveLink: "https://drive.google.com/drive/folders/1-YgiIdPWeneGnvEBpu2ON8l8gDEq1uBR?usp=sharing",
+    googleDriveLink: "https://drive.google.com/drive/folders/1ALay-pIjfX6JAd1JUhCnCvKy-Kr3FeA8?usp=sharing",
     hashtag: ["#SheenlyandGero"],
     instructions: "Please scan this QR Code, create a folder with your name and upload the photos and videos you have taken during our wedding reception. We are delighted to see your snaps too!",
   },
