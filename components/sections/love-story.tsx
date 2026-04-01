@@ -39,11 +39,11 @@ export function LoveStory() {
         layout="image-left"
         isFirst={true}
         title="A Love Meant to Last"
-        imageSrc="/mobile-background/couple (1).jpg"
+        imageSrc="/Album/couple1.jpg"
         text={
           <>
             <p className="mb-4">
-            Era and Vince’s story began in the simplest yet most 
+            Sheenly and Gero’s story began in the simplest yet most 
             meaningful way—two hearts crossing paths at the 
             right moment, unaware that something extraordinary 
             was about to unfold.  <i> <strong>We hope you could share your own love story with us; this is just a demo sample that can be replaced anytime </strong></i>. 
@@ -59,7 +59,7 @@ export function LoveStory() {
       <StorySection
         theme="dark"
         layout="image-right"
-        imageSrc="/mobile-background/couple (5).jpg"
+        imageSrc="/Album/couple2.jpg"
         // title="Became a Couple (2019)"
         text={
           <>
@@ -75,43 +75,12 @@ export function LoveStory() {
         theme="light"
         layout="image-left"
         isLast={true}
-        imageSrc="/mobile-background/couple (3).jpg"
+        imageSrc="/Album/couple3.jpg"
         // title="The Proposal (2025)"
         text={
           <>
             <p>
             Together, they have created a journey filled with memories, laughter, and dreams for the future. Each chapter of their story reflects patience, understanding, and a love that continues to evolve. They have learned that true love is not just about finding the right person, but about choosing each other every day.
-            </p>
-           
-          </>
-        }
-      />
-            {/* SECTION 4: Middle - Light */}
-            <StorySection
-        theme="dark"
-        layout="image-right"
-        imageSrc="/mobile-background/couple (4).jpg"
-        // title="Became a Couple (2019)"
-        text={
-          <>
-            <p>
-            Now, Era and Vince are ready to take the next step—hand in hand, heart to heart. With grateful spirits and hopeful hearts, they choose to turn their love into a lifelong commitment, embracing a future filled with shared dreams and endless possibilities.
-            </p>
-          </>
-        }
-      />
-
-      {/* SECTION 5: Bottom - Dark */}
-      <StorySection
-        theme="light"
-        layout="image-left"
-        isLast={true}
-        imageSrc="/mobile-background/couple (2).jpg"
-        // title="The Proposal (2025)"
-        text={
-          <>
-            <p>
-            With this, they joyfully invite you to witness the beginning of their forever—a celebration of love, unity, and the promise of a beautiful life together.
             </p>
            
           </>

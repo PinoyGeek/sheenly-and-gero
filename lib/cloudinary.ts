@@ -1,5 +1,5 @@
 const CLOUD_NAME = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME
-const PROJECT_PREFIX = "wedding-projects/ramon-and-mary-rose"
+const PROJECT_PREFIX = "wedding-projects/sheenly-and-gero"
 
 /**
  * Converts a local public path to a Cloudinary public ID, scoped to this

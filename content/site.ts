@@ -1,9 +1,9 @@
 export const siteConfig = {
   couple: {
-    bride: "Mary Rose Bricia", //Noenyl Bryle M. Gonzaga
-    brideNickname: "Mary Rose", //Ltryl
-    groom: "Ramon Obelidor", //Ltryl B. Benitez
-    groomNickname: "Ramon",
+    bride: "Sheenly Amor Delprado", //Noenyl Bryle M. Gonzaga
+    brideNickname: "Sheenly", //Ltryl
+    groom: "Gero Genada", //Ltryl B. Benitez
+    groomNickname: "Gero",
     monogram:"/monogram/monogram.png" ,//Ltryl
     backgroundMusic:"/background_music/Ed Sheeran - The Joker And The Queen (Lyrics) feat. Taylor Swift.mp3"
   },
@@ -19,9 +19,9 @@ export const siteConfig = {
     googleShare: "https://docs.google.com/spreadsheets/d/1SDjlC_uFesf7fuDXnfsehkhdIsiCwd7IVrAL4yzGHuM/edit?usp=sharing",
   },
   wedding: {
-    date: "May 8,2026",
+    date: "May 10,2026",
     time: "1:00 PM",
-    venue: "Parroquia Nuestra Señora De La Porteria",
+    venue: "San Antonio Abad Church",
     tagline: "are getting married!",
     theme: "Our wedding palette is inspired by timeless elegance and warmth.Motif Colors: Champagne Gold, Soft Beige, Warm Soft Brown",
     motif: "#001F4B, #04396D, #015B97, #6497B2, #B2CDE0",
@@ -29,8 +29,8 @@ export const siteConfig = {
   details: {
     rsvp: {
       deadline: "APRIL 15, 2026",
-      contact: "Mary Rose Bricia",
-      phone: "0906 206 6888",
+      contact: "Sheenly Amor Delprado",
+      phone: "09 270 658 559",
     },
   },
   giftRegistry: {
@@ -38,30 +38,30 @@ export const siteConfig = {
     id: "Gcash",
     src: "/QR/pleaseProvideQR.png",
     label: "Gcash",
-    accountNumber: "Gcash: Mary Rose Obelidor",
+    accountNumber: "Gcash: Sheenly Amor Delprado",
     },
     QR_2:{
     id: "Landbank",
     src: "/QR/pleaseProvideQR.png",
     label: "Landbank",
-    accountNumber: "Landbank: Mary Rose Obelidor",
+    accountNumber: "Landbank: Sheenly Amor Delprado",
     }
   },
   ceremony: {
-    location: "Parroquia Nuestra Señora De La Porteria",
-    venue: "Sta. Maria Hill, San Roque, Daraga, Albay",
-    date: "May 8, 2026",
-    day: "Friday",
+    location: "San Antonio Abad Church",
+    venue: "Lacson Ext, Bacolod City",
+    date: "May 10, 2026",
+    day: "Sunday",
     time: "1:00 PM",
     entourageTime: "12:00 PM",
     guestsTime: "12:30 PM",
     image: "/Details/ceremony.png",
   },
   reception: {
-    location: "Socorro's The Venue",
-    venue: "Brgy. Sumlang, Camalig, Albay",
-    date: "May 8, 2026",
-    time: "5 :00 PM",
+    location: "Sugarland (Sugarbowl)",
+    venue: "Singcang, Bacolod City",
+    date: "May 10, 2026",
+    time: "6 :00 PM",
     image: ["/Details/reception1.png","/Details/reception2.png"],
   },                          
   dressCode: {
@@ -70,14 +70,14 @@ export const siteConfig = {
     sponsors: {
       male: "Guests are kindly requested to wear attire in any of the shades within our wedding palette.Color pallet and image to be followed. STRICTLY no shorts, maong jeans, t-shirts, or slippers.",
       female: "Guests are kindly requested to wear attire in any of the shades within our wedding palette.Color pallet and image to be followed. STRICTLY no shorts, maong jeans, t-shirts, or slippers.",
-      notes: "Ninong: Barong and Black Slacks\n Ninang: Long Gown",
-      photo: "/Details/sponsors.png",
-      palette: "#001F4B, #04396D, #015B97, #6497B2, #B2CDE0",
+      notes: "We kindly request our guests to wear:\n Champagne-colored dresses for ladies \n Traditional Barong Tagalog for gentlemen",
+      photo: "/Details/sponsor.png",
+      palette: "#B38971, #CBA990, #ECD4BA, #F4E1C0",
     },
     guests: {
       gents: "Guests are kindly requested to wear attire in any of the shades within our wedding palette.Color pallet and image to be followed. STRICTLY no shorts, maong jeans, t-shirts, or slippers.",
       ladies: "Guests are kindly requested to wear attire in any of the shades within our wedding palette.Color pallet and image to be followed. STRICTLY no shorts, maong jeans, t-shirts, or slippers.",
-      notes: "Gentlemen: Suit and Tie\n Ladies: Long Gown",
+      notes: "We'd love for everyone to come dressed in FORMAL Attire, Your presence in our colors will make our day even more beautiful!",
       photo: "/Details/guest.png",
       palette: "#001F4B, #04396D, #015B97, #6497B2, #B2CDE0",
     },
@@ -112,7 +112,7 @@ Now, as they prepare to say yes before God and the people they love most, Cather
   },
   snapShare: {
     googleDriveLink: "https://drive.google.com/drive/folders/1-YgiIdPWeneGnvEBpu2ON8l8gDEq1uBR?usp=sharing",
-    hashtag: ["#MonAmourRose"],
+    hashtag: ["#SheenlyandGero"],
     instructions: "Please scan this QR Code, create a folder with your name and upload the photos and videos you have taken during our wedding reception. We are delighted to see your snaps too!",
   },
 }

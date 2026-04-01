@@ -88,10 +88,10 @@ export default function Home() {
               <MainHero />
               <Welcome />
               {/* <CoupleVideo />  */}
-              {/* <LoveStory /> */}
+              <LoveStory />
               <Countdown /> 
-              {/* <Gallery /> */}
-
+              <Gallery />
+              <Messages />
               <Details />
               {/* <GuestInformation /> */}
               <WeddingTimeline />
@@ -101,11 +101,12 @@ export default function Home() {
               <GuestList />
 
               <BookOfGuests />
-              <Messages />
+              <Registry />
+ 
               {/* <PrincipalSponsors /> */}
               <FAQ />
 
-              <Registry />
+
               <SnapShare />
 
               <Footer />

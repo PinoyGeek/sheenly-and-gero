@@ -279,7 +279,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
               }}
             />
             <CloudinaryImage
-              src="/monogram/monogram.png"
+              src={siteConfig.couple.monogram}
               alt="Monogram"
               width={240}
               height={240}
@@ -327,7 +327,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
               textShadow: "0 2px 32px rgba(100, 151, 178, 0.38)",
             }}
           >
-            {siteConfig.couple.groomNickname.trim()}
+            {siteConfig.couple.brideNickname.trim()}
           </span>
 
           <span
@@ -351,7 +351,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
               textShadow: "0 2px 32px rgba(100, 151, 178, 0.38)",
             }}
           >
-            {siteConfig.couple.brideNickname.trim()}
+            {siteConfig.couple.groomNickname.trim()}
           </span>
         </h1>
 
