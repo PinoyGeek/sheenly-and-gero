@@ -133,7 +133,7 @@ export function Gallery() {
       {/* Corner floral decoration - aligned with Details section */}
       <div className="absolute inset-0 pointer-events-none z-[1]">
         <CloudinaryImage
-          src="/decoration/flower-decoration-left-bottom-corner2.png"
+          src="/decoration/corner-left-bottom.png"
           alt=""
           width={300}
           height={300}
@@ -142,7 +142,7 @@ export function Gallery() {
           priority={false}
         />
         <CloudinaryImage
-          src="/decoration/flower-decoration-left-bottom-corner2.png"
+          src="/decoration/corner-left-bottom.png"
           alt=""
           width={300}
           height={300}
@@ -151,7 +151,7 @@ export function Gallery() {
           priority={false}
         />
         <CloudinaryImage
-          src="/decoration/flower-decoration-left-bottom-corner2.png"
+          src="/decoration/corner-left-bottom.png"
           alt=""
           width={300}
           height={300}
@@ -160,7 +160,7 @@ export function Gallery() {
           priority={false}
         />
         <CloudinaryImage
-          src="/decoration/flower-decoration-left-bottom-corner2.png"
+          src="/decoration/corner-left-bottom.png"
           alt=""
           width={300}
           height={300}
@@ -301,7 +301,7 @@ export function Gallery() {
             {/* View more */}
             {!isLoading && (
               <div className="mt-10 sm:mt-12 flex justify-center">
-                {/* <Link
+                <Link
                   href="/gallery"
                   className={`${cinzel.className} inline-flex items-center justify-center rounded-sm px-8 py-3.5 text-[0.65rem] sm:text-xs uppercase tracking-[0.22em] font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-motif-cream focus-visible:ring-motif-deep`}
                   style={{
@@ -324,7 +324,7 @@ export function Gallery() {
                   }}
                 >
                   View full gallery
-                </Link> */}
+                </Link>
               </div>
             )}
           </div>

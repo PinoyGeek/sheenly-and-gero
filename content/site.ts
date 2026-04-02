@@ -5,7 +5,7 @@ export const siteConfig = {
     groom: "Gero Genada", //Ltryl B. Benitez
     groomNickname: "Gero",
     monogram:"/monogram/monogram.png" ,//Ltryl
-    backgroundMusic:"/background_music/Ed Sheeran - The Joker And The Queen (Lyrics) feat. Taylor Swift.mp3"
+    backgroundMusic:"/background_music/Olivia Dean - So Easy (To Fall In Love) (Lyric Video).mp3"
   },
   googleAPI:{
     messageForm: "https://docs.google.com/forms/d/e/1FAIpQLSdPZF19eDFEuIJ4szHAwxEFzFPn5BLQNoLmga5TekcFAufqlg/formResponse", //done
@@ -72,13 +72,13 @@ export const siteConfig = {
       female: "Guests are kindly requested to wear attire in any of the shades within our wedding palette.Color pallet and image to be followed. STRICTLY no shorts, maong jeans, t-shirts, or slippers.",
       notes: "We kindly request our guests to wear:\n Champagne-colored dresses for ladies \n Traditional Barong Tagalog for gentlemen",
       photo: "/Details/sponsor.png",
-      palette: "#B38971, #CBA990, #ECD4BA, #F4E1C0",
+      palette: "#B58B72, #CEAA8F, #ECD5BC, #F9E0C1, #F8EBD7",
     },
     guests: {
       gents: "Guests are kindly requested to wear attire in any of the shades within our wedding palette.Color pallet and image to be followed. STRICTLY no shorts, maong jeans, t-shirts, or slippers.",
       ladies: "Guests are kindly requested to wear attire in any of the shades within our wedding palette.Color pallet and image to be followed. STRICTLY no shorts, maong jeans, t-shirts, or slippers.",
       notes: "We'd love for everyone to come dressed in FORMAL Attire, Your presence in our colors will make our day even more beautiful!",
-      photo: "/Details/guest.png",
+      photo: "/Details/neguest.png",
       palette: "#001F4B, #04396D, #015B97, #6497B2, #B2CDE0",
     },
     note: "We kindly request our guests to dress in attire following our wedding palette."

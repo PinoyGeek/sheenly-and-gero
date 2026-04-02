@@ -16,7 +16,6 @@ export interface StaggeredMenuProps {
   items?: StaggeredMenuItem[];
   socialItems?: StaggeredMenuSocialItem[];
   displaySocials?: boolean;
-  displayItemNumbering?: boolean;
   className?: string;
   menuButtonColor?: string;
   openMenuButtonColor?: string;
@@ -39,7 +38,6 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
   items = [],
   socialItems = [],
   displaySocials = true,
-  displayItemNumbering = true,
   className,
   menuButtonColor = HERO_ACCENT,
   openMenuButtonColor = MENU_TEXT,
@@ -107,9 +105,6 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
     itemEntranceTweenRef.current?.kill();
 
     const itemEls = Array.from(panel.querySelectorAll('.sm-panel-itemLabel')) as HTMLElement[];
-    const numberEls = Array.from(
-      panel.querySelectorAll('.sm-panel-list[data-numbering] .sm-panel-item')
-    ) as HTMLElement[];
     const socialTitle = panel.querySelector('.sm-socials-title') as HTMLElement | null;
     const socialLinks = Array.from(panel.querySelectorAll('.sm-socials-link')) as HTMLElement[];
 
@@ -117,7 +112,6 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
     const panelStart = Number(gsap.getProperty(panel, 'xPercent'));
 
     if (itemEls.length) gsap.set(itemEls, { yPercent: 140, rotate: 10 });
-    if (numberEls.length) gsap.set(numberEls, { ['--sm-num-opacity' as any]: 0 });
     if (socialTitle) gsap.set(socialTitle, { opacity: 0 });
     if (socialLinks.length) gsap.set(socialLinks, { y: 25, opacity: 0 });
 
@@ -147,14 +141,6 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
         { yPercent: 0, rotate: 0, duration: 1, ease: 'power4.out', stagger: { each: 0.1, from: 'start' } },
         itemsStart
       );
-
-      if (numberEls.length) {
-        tl.to(
-          numberEls,
-          { duration: 0.6, ease: 'power2.out', ['--sm-num-opacity' as any]: 1, stagger: { each: 0.08, from: 'start' } },
-          itemsStart + 0.1
-        );
-      }
     }
 
     if (socialTitle || socialLinks.length) {
@@ -219,11 +205,6 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
       onComplete: () => {
         const itemEls = Array.from(panel.querySelectorAll('.sm-panel-itemLabel')) as HTMLElement[];
         if (itemEls.length) gsap.set(itemEls, { yPercent: 140, rotate: 10 });
-
-        const numberEls = Array.from(
-          panel.querySelectorAll('.sm-panel-list[data-numbering] .sm-panel-item')
-        ) as HTMLElement[];
-        if (numberEls.length) gsap.set(numberEls, { ['--sm-num-opacity' as any]: 0 });
 
         const socialTitle = panel.querySelector('.sm-socials-title') as HTMLElement | null;
         const socialLinks = Array.from(panel.querySelectorAll('.sm-socials-link')) as HTMLElement[];
@@ -415,7 +396,6 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
             <ul
               className="sm-panel-list list-none m-0 p-0 flex flex-col gap-3"
               role="list"
-              data-numbering={displayItemNumbering || undefined}
             >
               {items && items.length ? (
                 items.map((it, idx) => (
@@ -519,8 +499,6 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
 @media (min-width: 1024px) { .sm-scope .sm-panel-item { font-size: 4.1rem; letter-spacing: -2px; } }
 .sm-scope .sm-panel-itemLabel { display: inline-block; will-change: transform; transform-origin: 50% 100%; }
 .sm-scope .sm-panel-item:hover { color: var(--sm-accent, var(--color-motif-cream)); }
-.sm-scope .sm-panel-list[data-numbering] { counter-reset: smItem; }
-.sm-scope .sm-panel-list[data-numbering] .sm-panel-item::after { counter-increment: smItem; content: counter(smItem, decimal-leading-zero); position: absolute; top: 0.1em; right: 3.2em; font-size: 18px; font-weight: 400; color: var(--sm-accent, var(--color-motif-cream)); letter-spacing: 0; pointer-events: none; user-select: none; opacity: var(--sm-num-opacity, 0); }
 @media (max-width: 1024px) { .sm-scope .staggered-menu-panel { width: 100%; left: 0; right: 0; } .sm-scope .staggered-menu-wrapper[data-open] .sm-logo-img { filter: invert(100%); } }
 @media (max-width: 640px) {
   .sm-scope .staggered-menu-header { padding: 1rem; }

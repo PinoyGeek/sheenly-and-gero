@@ -126,12 +126,12 @@ export function Details() {
       {/* Flower decoration - top left corner */}
       <div className="absolute left-0 top-0 z-0 pointer-events-none">
         <CloudinaryImage
-          src="/decoration/flower-decoration-left-bottom-corner2.png"
+          src="/decoration/corner-left-bottom.png"
           alt=""
           width={300}
           height={300}
           className="w-auto h-auto max-w-[160px] sm:max-w-[200px] md:max-w-[240px] lg:max-w-[280px] opacity-65 scale-y-[-1]"
-          style={{ filter: DECO_FILTER }}
+          // style={{ filter: DECO_FILTER }}
           priority={false}
         />
       </div>
@@ -139,12 +139,12 @@ export function Details() {
       {/* Flower decoration - top right corner */}
       <div className="absolute right-0 top-0 z-0 pointer-events-none">
         <CloudinaryImage
-          src="/decoration/flower-decoration-left-bottom-corner2.png"
+          src="/decoration/corner-left-bottom.png"
           alt=""
           width={300}
           height={300}
           className="w-auto h-auto max-w-[160px] sm:max-w-[200px] md:max-w-[240px] lg:max-w-[280px] opacity-65 scale-x-[-1] scale-y-[-1]"
-          style={{ filter: DECO_FILTER }}
+          // style={{ filter: DECO_FILTER }}
           priority={false}
         />
       </div>
@@ -152,12 +152,12 @@ export function Details() {
       {/* Flower decoration - left bottom corner */}
       <div className="absolute left-0 bottom-0 z-0 pointer-events-none">
         <CloudinaryImage
-          src="/decoration/flower-decoration-left-bottom-corner2.png"
+          src="/decoration/corner-left-bottom.png"
           alt=""
           width={300}
           height={300}
           className="w-auto h-auto max-w-[160px] sm:max-w-[200px] md:max-w-[240px] lg:max-w-[280px] opacity-65"
-          style={{ filter: DECO_FILTER }}
+          // style={{ filter: DECO_FILTER }}
           priority={false}
         />
       </div>
@@ -165,12 +165,12 @@ export function Details() {
       {/* Flower decoration - right bottom corner */}
       <div className="absolute right-0 bottom-0 z-0 pointer-events-none">
         <CloudinaryImage
-          src="/decoration/flower-decoration-left-bottom-corner2.png"
+          src="/decoration/corner-left-bottom.png"
           alt=""
           width={300}
           height={300}
           className="w-auto h-auto max-w-[160px] sm:max-w-[200px] md:max-w-[240px] lg:max-w-[280px] opacity-65 scale-x-[-1]"
-          style={{ filter: DECO_FILTER }}
+          // style={{ filter: DECO_FILTER }}
           priority={false}
         />
       </div>
@@ -517,10 +517,19 @@ export function Details() {
               </div>
               
               {/* Sponsors Dress Code Text */}
-              <div className="text-center pt-3 sm:pt-4 border-t border-motif-silver/70 px-3 sm:px-4">
-                <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] text-motif-deep leading-relaxed mb-2">
-                  <span className="font-semibold">{siteConfig.dressCode.sponsors.notes}</span>
-                </p>
+              <div className="pt-3 sm:pt-4 border-t border-motif-silver/70 px-3 sm:px-4">
+                <div className="flex items-start gap-2 mb-0.5">
+                  <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] text-motif-deep leading-relaxed">
+                    <span className="font-semibold tracking-wide">Gentlemen:</span>{" "}
+                    <span className="italic">Barong and pants</span>
+                  </p>
+                </div>
+                <div className="flex items-start gap-2">
+                  <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] text-motif-deep leading-relaxed">
+                    <span className="font-semibold tracking-wide">Ladies:</span>{" "}
+                    <span className="italic">Formal long dress in champagne color</span>
+                  </p>
+                </div>
                 {/* <p className="text-xs sm:text-sm md:text-base font-[family-name:var(--font-crimson)] text-motif-deep leading-relaxed mb-2">
                   <span className="font-semibold">Palette inspiration:</span> {siteConfig.dressCode.colors}
                 </p>
@@ -576,49 +585,30 @@ export function Details() {
               </div>
               
               {/* Guests Dress Code Text */}
-              <div className="text-center pt-3 sm:pt-4 border-t border-motif-silver/70 px-3 sm:px-4 mb-4">
-                <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] text-motif-deep leading-relaxed mb-2">
-                  <span className="font-semibold">{siteConfig.dressCode.guests.notes}</span>
-                  <br />
-               
-                </p>
-                {/* <div className="mt-3 sm:mt-4 text-left max-w-2xl mx-auto">
-                  <div className="flex items-center justify-center sm:justify-start gap-2 mb-2">
-                    <span className="inline-flex h-2 w-2 rounded-full bg-motif-accent/80" aria-hidden="true" />
-                    <p className={`${cinzel.className} text-[11px] sm:text-xs tracking-[0.22em] uppercase text-motif-deep/80`}>
-                      Notes
-                    </p>
-                    <span className="hidden sm:block h-px flex-1 bg-motif-deep/15" aria-hidden="true" />
+                <div className="pt-3 sm:pt-4 border-t border-motif-silver/70 px-3 sm:px-4">
+                <div className="flex items-start gap-2 mb-0.5">
+                  <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] text-motif-deep leading-relaxed">
+                    <span className="font-semibold tracking-wide">Gentlemen:</span>{" "}
+                    <span className="italic">Polo or long sleeves shirt and pants</span>
+                  </p>
+                </div>
+                <div className="flex items-start gap-2">
+                  <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] text-motif-deep leading-relaxed">
+                    <span className="font-semibold tracking-wide">Ladies:</span>{" "}
+                    <span className="italic">Long or cocktail dress in shades of blue</span>
+                  </p>
                   </div>
-
-                  <ul className="space-y-2 sm:space-y-2.5">
-                    <li className="flex gap-3">
-                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-motif-deep/40" aria-hidden="true" />
-                      <p className="text-xs sm:text-sm md:text-base font-[family-name:var(--font-crimson)] text-motif-deep/90 leading-relaxed">
-                        Ladies, we know you’d look beautiful in white—but let’s save that for the bride.
-                      </p>
-                    </li>
-                    <li className="flex gap-3">
-                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-motif-deep/40" aria-hidden="true" />
-                      <p className="text-xs sm:text-sm md:text-base font-[family-name:var(--font-crimson)] text-motif-deep/90 leading-relaxed">
-                        We kindly encourage everyone to avoid casual attire such as jeans, shorts, slippers, and sando.
-                      </p>
-                    </li>
-                    <li className="flex gap-3">
-                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-motif-deep/40" aria-hidden="true" />
-                      <p className="text-xs sm:text-sm md:text-base font-[family-name:var(--font-crimson)] text-motif-deep/90 leading-relaxed">
-                        We also gently discourage wearing all or predominantly black outfits to match the bright and joyful mood of our wedding celebration.
-                      </p>
-                    </li>
-                  </ul>
-                </div> */}
-                {/* <p className="text-xs sm:text-sm md:text-base font-[family-name:var(--font-crimson)] text-motif-deep leading-relaxed italic">
-                  {siteConfig.dressCode.note}
-                </p> */}
+                  <div className="flex items-center gap-2 mt-3 pt-3 border-t border-motif-silver/40">
+                    <span className="text-xs font-bold tracking-widest uppercase text-motif-silver/70 shrink-0">Note</span>
+                    <span className="text-motif-silver/50 shrink-0">—</span>
+                    <p className="text-xs sm:text-sm font-[family-name:var(--font-crimson)] text-motif-deep/70 italic leading-relaxed">
+                      Strictly no sando and shorts, please.
+                    </p>
+                  </div>
               </div>
-            </div>
           </div>
 
+        </div>
         </div>
 
      {/* Gentle Reminders Container */}

@@ -75,8 +75,8 @@ export default function Home() {
           <div className={`transition-opacity duration-700 ${appState === AppState.DETAILS ? "opacity-100" : "opacity-0 pointer-events-none"}`}>
             {enableDecor && (
               <div className="fixed inset-0 z-0 pointer-events-none">
-                <Suspense fallback={<div className="w-full h-full bg-gradient-to-b from-primary/10 to-secondary/5" />}>
-                  <Silk speed={5} scale={1.1} color="#015B97" noiseIntensity={0.8} rotation={0.3} />
+                  <Suspense fallback={<div className="w-full h-full" style={{ background: "linear-gradient(155deg, #FFFFFF 0%, #F4F8FB 50%, #DDE9F4 100%)" }} />}>
+                  <Silk speed={5} scale={1.1} color="#00558F" noiseIntensity={0.35} rotation={0.3} />
                 </Suspense>
               </div>
             )}
@@ -101,7 +101,7 @@ export default function Home() {
               <GuestList />
 
               <BookOfGuests />
-              <Registry />
+              {/* <Registry /> */}
  
               {/* <PrincipalSponsors /> */}
               <FAQ />

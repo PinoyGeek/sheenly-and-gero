@@ -1,0 +1,1 @@
+node --import tsx/esm scripts/cloudinary-pre-commit.ts

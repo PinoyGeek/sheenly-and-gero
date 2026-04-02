@@ -1,5 +1,6 @@
 import fs from "fs/promises"
 import path from "path"
+import sharp from "sharp"
 import MasonryGallery from "@/components/masonry-gallery"
 import { siteConfig } from "@/content/site"
 import { CloudinaryImage } from "@/components/ui/cloudinary-image"
@@ -15,41 +16,45 @@ const cormorant = Cormorant_Garamond({
   weight: ["400", "500", "600"],
 })
 
-// Match Details/Gallery palette
-const GALLERY_TEXT = "#9B6A41"
-const GALLERY_DECO_FILTER =
-  "brightness(0) saturate(100%) invert(32%) sepia(55%) saturate(900%) hue-rotate(355deg) brightness(95%) contrast(90%)"
-
 // Generate on each request so newly added images in public/ appear without a rebuild
 export const dynamic = "force-dynamic"
 
-async function getImagesFrom(dir: string) {
+async function getAlbumImages() {
+  const dir = "Album"
   const abs = path.join(process.cwd(), "public", dir)
   try {
     const entries = await fs.readdir(abs, { withFileTypes: true })
-    return entries
+    const srcs = entries
       .filter((e) => e.isFile())
-      .map((e) => `/${dir}/${e.name}`)
-      .filter((p) => p.match(/\.(jpe?g|png|webp|gif)$/i))
+      .map((e) => ({ name: e.name, src: `/${dir}/${e.name}` }))
+      .filter(({ src }) => src.match(/\.(jpe?g|png|webp|gif)$/i))
       .sort((a, b) => {
-        // Extract numeric part from filename for proper numerical sorting
-        const numA = parseInt(a.match(/\/(\d+)\./)?.[1] || "0", 10)
-        const numB = parseInt(b.match(/\/(\d+)\./)?.[1] || "0", 10)
+        // Sort by the number inside parentheses, e.g. "couple (3).jpg"
+        const numA = parseInt(a.src.match(/\((\d+)\)/)?.[1] || "0", 10)
+        const numB = parseInt(b.src.match(/\((\d+)\)/)?.[1] || "0", 10)
         return numA - numB
       })
+
+    return await Promise.all(
+      srcs.map(async ({ name, src }) => {
+        try {
+          const { width = 800, height = 600 } = await sharp(path.join(abs, name)).metadata()
+          const orientation: "portrait" | "landscape" = height > width ? "portrait" : "landscape"
+          // Drive the masonry card aspect-ratio via category
+          const category = orientation === "portrait" ? ("mobile" as const) : ("desktop" as const)
+          return { src, width, height, orientation, category }
+        } catch {
+          return { src, width: 800, height: 600, orientation: "landscape" as const, category: "desktop" as const }
+        }
+      }),
+    )
   } catch {
     return []
   }
 }
 
 export default async function GalleryPage() {
-  const mobileImages = await getImagesFrom("mobile-background")
-  const desktopImages = await getImagesFrom("desktop-background")
-  const allImages = [...mobileImages, ...desktopImages]
-  const images = allImages.map((src) => {
-    const category = src.includes("mobile-background") ? "mobile" as const : "desktop" as const
-    return { src, category }
-  })
+  const images = await getAlbumImages()
 
   return (
     <main className="min-h-screen relative overflow-hidden bg-white">
@@ -65,7 +70,7 @@ export default async function GalleryPage() {
           height={300}
           className="w-auto h-auto max-w-[140px] sm:max-w-[180px] md:max-w-[220px] lg:max-w-[260px] opacity-25 scale-y-[-1]"
           priority={false}
-          style={{ filter: GALLERY_DECO_FILTER }}
+          style={{ filter: "var(--color-motif-deco-filter)" }}
         />
       </div>
       
@@ -78,7 +83,7 @@ export default async function GalleryPage() {
           height={300}
           className="w-auto h-auto max-w-[140px] sm:max-w-[180px] md:max-w-[220px] lg:max-w-[260px] opacity-25 scale-x-[-1] scale-y-[-1]"
           priority={false}
-          style={{ filter: GALLERY_DECO_FILTER }}
+          style={{ filter: "var(--color-motif-deco-filter)" }}
         />
       </div>
       
@@ -91,7 +96,7 @@ export default async function GalleryPage() {
           height={300}
           className="w-auto h-auto max-w-[140px] sm:max-w-[180px] md:max-w-[220px] lg:max-w-[260px] opacity-25"
           priority={false}
-          style={{ filter: GALLERY_DECO_FILTER }}
+          style={{ filter: "var(--color-motif-deco-filter)" }}
         />
       </div>
       
@@ -104,7 +109,7 @@ export default async function GalleryPage() {
           height={300}
           className="w-auto h-auto max-w-[140px] sm:max-w-[180px] md:max-w-[220px] lg:max-w-[260px] opacity-25 scale-x-[-1]"
           priority={false}
-          style={{ filter: GALLERY_DECO_FILTER }}
+          style={{ filter: "var(--color-motif-deco-filter)" }}
         />
       </div>
 
@@ -113,27 +118,27 @@ export default async function GalleryPage() {
           {/* Decorative element above title - match Details/Gallery */}
           <div className="flex items-center justify-center gap-2 mb-3 sm:mb-4">
             <div
-              className="w-8 sm:w-12 md:w-16 h-px bg-gradient-to-r from-transparent to-transparent"
-              style={{ background: `linear-gradient(to right, transparent, ${GALLERY_TEXT}40, transparent)` }}
+              className="w-8 sm:w-12 md:w-16 h-px"
+              style={{ background: "linear-gradient(to right, transparent, color-mix(in srgb, var(--color-motif-deep) 25%, transparent), transparent)" }}
             />
-            <div className="w-1.5 h-1.5 rounded-full opacity-80" style={{ backgroundColor: GALLERY_TEXT }} />
-            <div className="w-1.5 h-1.5 rounded-full opacity-50" style={{ backgroundColor: GALLERY_TEXT }} />
-            <div className="w-1.5 h-1.5 rounded-full opacity-80" style={{ backgroundColor: GALLERY_TEXT }} />
+            <div className="w-1.5 h-1.5 rounded-full opacity-80" style={{ backgroundColor: "var(--color-motif-deep)" }} />
+            <div className="w-1.5 h-1.5 rounded-full opacity-50" style={{ backgroundColor: "var(--color-motif-deep)" }} />
+            <div className="w-1.5 h-1.5 rounded-full opacity-80" style={{ backgroundColor: "var(--color-motif-deep)" }} />
             <div
-              className="w-8 sm:w-12 md:w-16 h-px bg-gradient-to-r from-transparent to-transparent"
-              style={{ background: `linear-gradient(to right, transparent, ${GALLERY_TEXT}40, transparent)` }}
+              className="w-8 sm:w-12 md:w-16 h-px"
+              style={{ background: "linear-gradient(to right, transparent, color-mix(in srgb, var(--color-motif-deep) 25%, transparent), transparent)" }}
             />
           </div>
 
           <h1
             className={`${cinzel.className} text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal mb-2 sm:mb-3 md:mb-4`}
-            style={{ color: GALLERY_TEXT }}
+            style={{ color: "var(--color-motif-deep)" }}
           >
             Our Love Story Gallery
           </h1>
           <p
             className={`${cormorant.className} text-xs sm:text-sm md:text-base lg:text-lg font-light max-w-xl mx-auto leading-relaxed px-2`}
-            style={{ color: GALLERY_TEXT }}
+            style={{ color: "var(--color-motif-deep)" }}
           >
             Every photograph tells a story of {siteConfig.couple.groomNickname} & {siteConfig.couple.brideNickname}'s journey to
             forever
@@ -141,21 +146,21 @@ export default async function GalleryPage() {
 
           {/* Decorative element below subtitle */}
           <div className="flex items-center justify-center gap-2 mt-3 sm:mt-4">
-            <div className="w-1.5 h-1.5 rounded-full opacity-80" style={{ backgroundColor: GALLERY_TEXT }} />
-            <div className="w-1.5 h-1.5 rounded-full opacity-50" style={{ backgroundColor: GALLERY_TEXT }} />
-            <div className="w-1.5 h-1.5 rounded-full opacity-80" style={{ backgroundColor: GALLERY_TEXT }} />
+            <div className="w-1.5 h-1.5 rounded-full opacity-80" style={{ backgroundColor: "var(--color-motif-deep)" }} />
+            <div className="w-1.5 h-1.5 rounded-full opacity-50" style={{ backgroundColor: "var(--color-motif-deep)" }} />
+            <div className="w-1.5 h-1.5 rounded-full opacity-80" style={{ backgroundColor: "var(--color-motif-deep)" }} />
           </div>
         </div>
 
         {images.length === 0 ? (
-          <div className={`${cormorant.className} text-center`} style={{ color: `${GALLERY_TEXT}e6` }}>
+          <div className={`${cormorant.className} text-center`} style={{ color: "var(--color-motif-medium)" }}>
             <p className="font-light">
               No images found. Add files to{" "}
               <code
                 className="px-2 py-1 rounded border"
-                style={{ backgroundColor: `${GALLERY_TEXT}10`, borderColor: `${GALLERY_TEXT}40`, color: GALLERY_TEXT }}
+                style={{ backgroundColor: "var(--color-motif-cream)", borderColor: "var(--color-motif-silver)", color: "var(--color-motif-deep)" }}
               >
-                public/mobile-background or public/desktop-background
+                public/Album
               </code>
               .
             </p>

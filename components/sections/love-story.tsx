@@ -46,7 +46,7 @@ export function LoveStory() {
             Sheenly and Gero’s story began in the simplest yet most 
             meaningful way—two hearts crossing paths at the 
             right moment, unaware that something extraordinary 
-            was about to unfold.  <i> <strong>We hope you could share your own love story with us; this is just a demo sample that can be replaced anytime </strong></i>. 
+            was about to unfold.   
             What started as a connection soon blossomed into a love that felt both natural and destined, growing stronger with every 
             shared smile and conversation.
             </p>

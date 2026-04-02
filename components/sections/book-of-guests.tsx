@@ -193,46 +193,46 @@ export function BookOfGuests() {
       {/* Flower decoration — warm brown tint */}
       <div className="absolute left-0 top-0 z-0 pointer-events-none">
         <CloudinaryImage
-          src="/decoration/flower-decoration-left-bottom-corner2.png"
+          src="/decoration/corner-left-bottom.png"
           alt=""
           width={300}
           height={300}
           className="w-auto h-auto max-w-[160px] sm:max-w-[200px] md:max-w-[240px] lg:max-w-[280px] opacity-70 scale-y-[-1]"
           priority={false}
-          style={{ filter: DECO_FILTER_BOOK }}
+          // style={{ filter: DECO_FILTER_BOOK }}
         />
       </div>
       <div className="absolute right-0 top-0 z-0 pointer-events-none">
         <CloudinaryImage
-          src="/decoration/flower-decoration-left-bottom-corner2.png"
+          src="/decoration/corner-left-bottom.png"
           alt=""
           width={300}
           height={300}
           className="w-auto h-auto max-w-[160px] sm:max-w-[200px] md:max-w-[240px] lg:max-w-[280px] opacity-70 scale-x-[-1] scale-y-[-1]"
           priority={false}
-          style={{ filter: DECO_FILTER_BOOK }}
+          // style={{ filter: DECO_FILTER_BOOK }}
         />
       </div>
       <div className="absolute left-0 bottom-0 z-0 pointer-events-none">
         <CloudinaryImage
-          src="/decoration/flower-decoration-left-bottom-corner2.png"
+          src="/decoration/corner-left-bottom.png"
           alt=""
           width={300}
           height={300}
           className="w-auto h-auto max-w-[160px] sm:max-w-[200px] md:max-w-[240px] lg:max-w-[280px] opacity-70"
           priority={false}
-          style={{ filter: DECO_FILTER_BOOK }}
+          // style={{ filter: DECO_FILTER_BOOK }}
         />
       </div>
       <div className="absolute right-0 bottom-0 z-0 pointer-events-none">
         <CloudinaryImage
-          src="/decoration/flower-decoration-left-bottom-corner2.png"
+          src="/decoration/corner-left-bottom.png"
           alt=""
           width={300}
           height={300}
           className="w-auto h-auto max-w-[160px] sm:max-w-[200px] md:max-w-[240px] lg:max-w-[280px] opacity-70 scale-x-[-1]"
           priority={false}
-          style={{ filter: DECO_FILTER_BOOK }}
+          // style={{ filter: DECO_FILTER_BOOK }}
         />
       </div>
 

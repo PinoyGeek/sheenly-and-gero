@@ -35,6 +35,8 @@
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
   --radius: 0.625rem;
+  /* Derived from --color-motif-deep — update together if brand color changes */
+  --color-motif-deco-filter: brightness(0) saturate(100%) invert(19%) sepia(100%) saturate(637%) hue-rotate(188deg) brightness(86%) contrast(103%);
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: #AFC8E6;
