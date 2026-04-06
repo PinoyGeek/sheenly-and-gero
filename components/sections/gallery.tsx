@@ -251,11 +251,6 @@ export function Gallery() {
                           <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-active:opacity-100 transition-opacity duration-300" />
                         </div>
 
-                        <div className="absolute top-2 right-2 backdrop-blur-sm rounded-full px-2 py-1" style={{ backgroundColor: 'color-mix(in srgb, var(--color-motif-deep) 60%, transparent)' }}>
-                          <span className="text-xs font-medium text-motif-cream">
-                            {index + 1}/{galleryItems.length}
-                          </span>
-                        </div>
                       </button>
                     ))}
                   </div>
@@ -293,12 +288,6 @@ export function Gallery() {
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                       </div>
 
-                      {/* Image counter badge */}
-                      <div className="absolute top-2 right-2 backdrop-blur-sm rounded-full px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ backgroundColor: 'color-mix(in srgb, var(--color-motif-deep) 60%, transparent)' }}>
-                        <span className="text-xs font-medium text-motif-cream">
-                          {index + 1}/{galleryItems.length}
-                        </span>
-                      </div>
                     </button>
                   ))}
                 </div>
