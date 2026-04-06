@@ -369,23 +369,33 @@ export function Hero() {
           </div>
 
           {/* RSVP button */}
+          <style>{`
+            @keyframes btn-glow {
+              0%, 100% { box-shadow: 0 0 4px 1px rgba(0,85,143,0.10), 0 2px 10px rgba(0,85,143,0.12); }
+              50%       { box-shadow: 0 0 10px 3px rgba(0,85,143,0.22), 0 4px 18px rgba(0,85,143,0.20); }
+            }
+          `}</style>
           <div className={`mt-10 flex justify-center ${vis(5)}`}>
-            <a
-              href="#guest-list"
-              className="inline-flex items-center justify-center px-10 py-3 rounded-sm transition-all duration-300 hover:bg-[rgba(1,29,66,0.08)] hover:border-[rgba(1,29,66,0.55)]"
-              style={{
-                fontFamily: '"Cinzel", serif',
-                fontSize: "0.58rem",
-                letterSpacing: "0.45em",
-                textTransform: "uppercase",
-                color: "#011D42",
-                border: "1px solid rgba(1, 29, 66, 0.35)",
-                background: "rgba(1, 29, 66, 0.05)",
-                boxShadow: "0 4px 20px rgba(1, 29, 66, 0.08)",
-              }}
-            >
-              RSVP
-            </a>
+            <div className="relative">
+              {/* Pulse ring */}
+              <span className="absolute inset-0 rounded-sm animate-ping opacity-10" style={{ background: "#00558F", animationDuration: "2.5s" }} />
+              <a
+                href="#guest-list"
+                className="relative inline-flex items-center justify-center px-10 py-3 rounded-sm transition-all duration-300 hover:brightness-110 hover:scale-105 active:scale-95"
+                style={{
+                  fontFamily: '"Cinzel", serif',
+                  fontSize: "0.58rem",
+                  letterSpacing: "0.45em",
+                  textTransform: "uppercase",
+                  color: "#ffffff",
+                  background: "#00558F",
+                  border: "1px solid rgba(0, 85, 143, 0.5)",
+                  animation: "btn-glow 5s ease-in-out infinite",
+                }}
+              >
+                RSVP
+              </a>
+            </div>
           </div>
 
         </div>{/* end card */}

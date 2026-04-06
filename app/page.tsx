@@ -91,6 +91,8 @@ export default function Home() {
               <LoveStory />
               <Countdown /> 
               <Gallery />
+              <GuestList />
+<BookOfGuests />
               <Messages />
               <Details />
               {/* <GuestInformation /> */}
@@ -98,9 +100,7 @@ export default function Home() {
       
               <Entourage />
 
-              <GuestList />
 
-              <BookOfGuests />
               {/* <Registry /> */}
  
               {/* <PrincipalSponsors /> */}

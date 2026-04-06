@@ -32,6 +32,12 @@ const galleryItems = [
   { image: "/Album/couple (3).jpg", text: " " },
   { image: "/Album/couple (4).jpg", text: " " },
   { image: "/Album/couple (5).jpg", text: " " },
+  { image: "/Album/couple (6).jpg", text: " " },
+  { image: "/Album/couple (7).jpg", text: " " },
+  { image: "/Album/couple (8).jpg", text: " " },
+  { image: "/Album/couple (9).jpg", text: " " },
+  { image: "/Album/couple (10).jpg", text: " " },
+
 ]
 
 export function Gallery() {
@@ -302,7 +308,7 @@ export function Gallery() {
             {/* View more */}
             {!isLoading && (
               <div className="mt-10 sm:mt-12 flex justify-center">
-                <Link
+                {/* <Link
                   href="/gallery"
                   className={`${cinzel.className} inline-flex items-center justify-center rounded-sm px-8 py-3.5 text-[0.65rem] sm:text-xs uppercase tracking-[0.22em] font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-motif-cream focus-visible:ring-motif-deep`}
                   style={{
@@ -325,7 +331,7 @@ export function Gallery() {
                   }}
                 >
                   View full gallery
-                </Link>
+                </Link> */}
               </div>
             )}
           </div>
