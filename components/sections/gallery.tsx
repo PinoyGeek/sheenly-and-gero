@@ -254,10 +254,10 @@ export function Gallery() {
                       </button>
                     ))}
                   </div>
-
+{/* 
                   <p className="mt-2 text-center text-xs font-[family-name:var(--font-crimson)] tracking-wide" style={{ color: 'var(--color-motif-medium)' }}>
                     Swipe to explore
-                  </p>
+                  </p> */}
                 </div>
 
                 {/* Tablet/Desktop: existing grid */}
