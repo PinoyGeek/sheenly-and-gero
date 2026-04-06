@@ -28,7 +28,7 @@ export function Welcome() {
   return (
     <Section
       id="welcome"
-      className="relative overflow-hidden bg-transparent py-12 sm:py-16 md:py-20"
+      className="relative overflow-hidden bg-transparent -mt-2 sm:-mt-3 pt-4 sm:pt-5 pb-12 sm:pb-16 md:pb-20"
     >
       {/* Corner floral decoration - same as countdown section */}
       <div className="absolute left-0 top-0 z-0 pointer-events-none">

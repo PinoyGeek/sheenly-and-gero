@@ -147,7 +147,7 @@ export function Hero() {
       /> */}
 
       {/* Main content */}
-      <div className="relative z-10 w-full min-h-screen flex items-center justify-center px-4 sm:px-6 py-16">
+      <div className="relative z-10 w-full min-h-screen flex items-center justify-center px-4 sm:px-6 pt-16 pb-4">
         {/* Card container */}
         <div
           className={`w-full max-w-lg sm:max-w-xl rounded-[24px] sm:rounded-[28px] px-7 sm:px-12 py-10 sm:py-14 text-center transition-all duration-700 ease-out ${
