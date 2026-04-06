@@ -190,8 +190,8 @@ export function FAQ() {
       </div>
 
       {/* Section Header */}
-      <div className="relative z-30 text-center mb-6 sm:mb-9 md:mb-12 px-3 sm:px-4">
-        <p className={`${cormorant.className} text-[0.7rem] sm:text-xs md:text-sm uppercase tracking-[0.28em] mb-2`} style={{ color: palette.softBrown }}>
+      <div className="relative z-30 text-center mb-6 sm:mb-9 md:mb-12">
+        <p className={`${cormorant.className} text-[0.7rem] sm:text-xs md:text-sm uppercase tracking-[0.28em] mb-2 mx-auto max-w-xs sm:max-w-sm md:max-w-md px-10 sm:px-14 md:px-0`} style={{ color: palette.softBrown }}>
           Answers for our celebration day
         </p>
         <h2 
@@ -200,7 +200,7 @@ export function FAQ() {
                 >
           Frequently Asked Questions
         </h2>
-        <p className="text-xs sm:text-sm md:text-base font-light max-w-xl mx-auto leading-relaxed px-2 mb-2 sm:mb-3" style={{ color: 'var(--color-motif-medium)' }}>
+        <p className="text-xs sm:text-sm md:text-base font-light max-w-xl mx-auto leading-relaxed px-10 sm:px-14 md:px-2 mb-2 sm:mb-3" style={{ color: 'var(--color-motif-medium)' }}>
           Helpful notes so you can simply arrive, celebrate, and enjoy this new chapter with us.
         </p>
         <div className="flex items-center justify-center gap-2 mt-3 sm:mt-4">
