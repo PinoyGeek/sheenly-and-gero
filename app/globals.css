@@ -174,6 +174,24 @@ html {
   font-display: swap;
 }
 
+/* ── Agrandir Wide Bold ── */
+@font-face {
+  font-family: "AgrandirWideBold";
+  src: url("/fonts/agrandir-wide-bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ── Brittany Signature Script ── */
+@font-face {
+  font-family: "BrittanySignature";
+  src: url("/fonts/BrittanySignatureScript.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 .lighten-regular {
   font-family: "LightenFree", serif;
   font-weight: 400;

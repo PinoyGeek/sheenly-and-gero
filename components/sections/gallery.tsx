@@ -27,10 +27,11 @@ const cinzel = Cinzel({
 })
 
 const galleryItems = [
-  { image: "/Album/couple1.jpg", text: " " },
-  { image: "/Album/couple2.jpg", text: " " },
-  { image: "/Album/couple3.jpg", text: " " },
-
+  { image: "/Album/couple (1).jpg", text: " " },
+  { image: "/Album/couple (2).jpg", text: " " },
+  { image: "/Album/couple (3).jpg", text: " " },
+  { image: "/Album/couple (4).jpg", text: " " },
+  { image: "/Album/couple (5).jpg", text: " " },
 ]
 
 export function Gallery() {

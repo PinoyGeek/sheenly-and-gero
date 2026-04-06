@@ -5,7 +5,7 @@ export const siteConfig = {
     groom: "Gero Genada", //Ltryl B. Benitez
     groomNickname: "Gero",
     monogram:"/monogram/monogram.png" ,//Ltryl
-    backgroundMusic:"/background_music/Olivia Dean - So Easy (To Fall In Love) (Lyric Video).mp3"
+    backgroundMusic:"/background_music/ZAHEEN - NAHALAL KAWIN (ENGLISH VERSION).mp3"
   },
   googleAPI:{
     messageForm: "https://docs.google.com/forms/d/e/1FAIpQLSdPZF19eDFEuIJ4szHAwxEFzFPn5BLQNoLmga5TekcFAufqlg/formResponse", //done
