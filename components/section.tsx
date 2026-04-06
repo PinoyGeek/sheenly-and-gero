@@ -1,4 +1,4 @@
-import type { ReactNode } from "react"
+import type { CSSProperties, ReactNode } from "react"
 
 interface SectionProps {
   id: string
@@ -7,13 +7,14 @@ interface SectionProps {
   children: ReactNode
   className?: string
   bgColor?: string
+  style?: CSSProperties
 }
 
-export function Section({ id, title, subtitle, children, className = "", bgColor }: SectionProps) {
+export function Section({ id, title, subtitle, children, className = "", bgColor, style }: SectionProps) {
   const bgColorClass = bgColor ? `bg-${bgColor}` : ""
   
   return (
-    <section id={id} className={`py-12 sm:py-16 md:py-20 lg:py-24 ${bgColorClass} ${className}`}>
+    <section id={id} className={`py-12 sm:py-16 md:py-20 lg:py-24 ${bgColorClass} ${className}`} style={style}>
       <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 xl:px-10">
         {(title || subtitle) && (
           <div className="text-center mb-10 sm:mb-12 md:mb-16">

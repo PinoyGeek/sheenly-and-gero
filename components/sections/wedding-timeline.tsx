@@ -109,42 +109,41 @@ export function WeddingTimeline() {
       id="wedding-timeline"
       className="relative py-10 sm:py-12 md:py-16 lg:py-20 overflow-hidden"
     >
-      {/* Corner floral decoration - white */}
+      {/* Corner floral decoration */}
       <div className="absolute inset-0 pointer-events-none z-[1]">
         <CloudinaryImage
-          src="/decoration/flower-decoration-left-bottom-corner2.png"
+          src="/decoration/corner-left-bottom.png"
           alt=""
           width={300}
           height={300}
-          className="absolute top-0 left-0 w-auto h-auto max-w-[140px] sm:max-w-[180px] md:max-w-[220px] opacity-25"
-          style={{ transform: "scaleY(-1)", filter: DECO_FILTER_WHITE }}
+          className="absolute top-0 left-0 w-auto h-auto max-w-[120px] sm:max-w-[160px] md:max-w-[200px]"
+          style={{ transform: "scaleY(-1)" }}
           priority={false}
         />
         <CloudinaryImage
-          src="/decoration/flower-decoration-left-bottom-corner2.png"
+          src="/decoration/corner-left-bottom.png"
           alt=""
           width={300}
           height={300}
-          className="absolute top-0 right-0 w-auto h-auto max-w-[140px] sm:max-w-[180px] md:max-w-[220px] opacity-25"
-          style={{ transform: "scaleX(-1) scaleY(-1)", filter: DECO_FILTER_WHITE }}
+          className="absolute top-0 right-0 w-auto h-auto max-w-[120px] sm:max-w-[160px] md:max-w-[200px]"
+          style={{ transform: "scaleX(-1) scaleY(-1)" }}
           priority={false}
         />
         <CloudinaryImage
-          src="/decoration/flower-decoration-left-bottom-corner2.png"
+          src="/decoration/corner-left-bottom.png"
           alt=""
           width={300}
           height={300}
-          className="absolute bottom-0 left-0 w-auto h-auto max-w-[140px] sm:max-w-[180px] md:max-w-[220px] opacity-25"
-          style={{ filter: DECO_FILTER_WHITE }}
+          className="absolute bottom-0 left-0 w-auto h-auto max-w-[120px] sm:max-w-[160px] md:max-w-[200px]"
           priority={false}
         />
         <CloudinaryImage
-          src="/decoration/flower-decoration-left-bottom-corner2.png"
+          src="/decoration/corner-left-bottom.png"
           alt=""
           width={300}
           height={300}
-          className="absolute bottom-0 right-0 w-auto h-auto max-w-[140px] sm:max-w-[180px] md:max-w-[220px] opacity-25"
-          style={{ transform: "scaleX(-1)", filter: DECO_FILTER_WHITE }}
+          className="absolute bottom-0 right-0 w-auto h-auto max-w-[120px] sm:max-w-[160px] md:max-w-[200px]"
+          style={{ transform: "scaleX(-1)" }}
           priority={false}
         />
       </div>

@@ -6,6 +6,7 @@ import { Instagram, Facebook, Twitter, Share2, Copy, Download, Check } from "luc
 import { Section } from "@/components/section"
 import { QRCodeCanvas } from "qrcode.react"
 import { siteConfig } from "@/content/site"
+import { CloudinaryImage } from "@/components/ui/cloudinary-image"
 import { Cormorant_Garamond, Cinzel } from "next/font/google"
 
 const cormorant = Cormorant_Garamond({
@@ -137,8 +138,48 @@ export function SnapShare() {
   return (
     <Section
       id="snap-share"
-      className="relative overflow-hidden py-12 sm:py-16 md:py-20 lg:py-24"
+      className="relative overflow-hidden"
+      style={{ paddingBottom: 0 }}
     >
+      {/* Corner floral decoration */}
+      <div className="absolute inset-0 pointer-events-none z-[1]">
+        <CloudinaryImage
+          src="/decoration/corner-left-bottom.png"
+          alt=""
+          width={300}
+          height={300}
+          className="absolute top-0 left-0 w-auto h-auto max-w-[120px] sm:max-w-[160px] md:max-w-[200px]"
+          style={{ transform: "scaleY(-1)" }}
+          priority={false}
+        />
+        <CloudinaryImage
+          src="/decoration/corner-left-bottom.png"
+          alt=""
+          width={300}
+          height={300}
+          className="absolute top-0 right-0 w-auto h-auto max-w-[120px] sm:max-w-[160px] md:max-w-[200px]"
+          style={{ transform: "scaleX(-1) scaleY(-1)" }}
+          priority={false}
+        />
+        {/* <CloudinaryImage
+          src="/decoration/corner-left-bottom.png"
+          alt=""
+          width={300}
+          height={300}
+          className="absolute bottom-0 left-0 w-auto h-auto max-w-[120px] sm:max-w-[160px] md:max-w-[200px]"
+          priority={false}
+        /> */}
+        {/* <CloudinaryImage
+          src="/decoration/corner-left-bottom.png"
+          alt=""
+          width={300}
+          height={300}
+          className="absolute bottom-0 right-0 w-auto h-auto max-w-[120px] sm:max-w-[160px] md:max-w-[200px]"
+          style={{ transform: "scaleX(-1)" }}
+          priority={false}
+        /> */}
+      </div>
+
       {/* Background — align with gallery/details */}
       {/* <div className="absolute inset-0 -z-10">
         <div

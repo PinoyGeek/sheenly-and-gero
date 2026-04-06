@@ -132,16 +132,16 @@ export function Footer() {
 
       <footer className="relative z-10 mt-12 sm:mt-16 overflow-hidden">
       {/* Corner decorations — deep brown tint (hero style) */}
-      <div className="absolute left-0 top-0 z-0 pointer-events-none">
+      {/* <div className="absolute left-0 top-0 z-0 pointer-events-none">
         <CloudinaryImage src="/decoration/corner-left-bottom.png" alt="" width={300} height={300} className="w-auto h-auto max-w-[160px] sm:max-w-[200px] md:max-w-[240px] scale-y-[-1]" priority={false} 
         // style={{ filter: DECO_FILTER }} 
         />
-      </div>
-      <div className="absolute right-0 top-0 z-0 pointer-events-none">
+      </div> */}
+      {/* <div className="absolute right-0 top-0 z-0 pointer-events-none">
         <CloudinaryImage src="/decoration/corner-left-bottom.png" alt="" width={300} height={300} className="w-auto h-auto max-w-[160px] sm:max-w-[200px] md:max-w-[240px] scale-x-[-1] scale-y-[-1]" priority={false} 
         // style={{ filter: DECO_FILTER }} 
         />
-      </div>
+      </div> */}
       <div className="absolute left-0 bottom-0 z-0 pointer-events-none">
         <CloudinaryImage src="/decoration/corner-left-bottom.png" alt="" width={300} height={300} className="w-auto h-auto max-w-[160px] sm:max-w-[200px] md:max-w-[240px]" priority={false} 
         // style={{ filter: DECO_FILTER }} 

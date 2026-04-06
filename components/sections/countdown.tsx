@@ -173,66 +173,43 @@ export function Countdown() {
       id="countdown"
       className="relative py-10 sm:py-12 md:py-16 lg:py-20 overflow-hidden"
     >
-         {/* ── Corner decorations ── */}
-         <img
-        src="/decoration/corner-right-top.png"
-        alt=""
-        aria-hidden
-        className="absolute top-0 right-0 pointer-events-none select-none z-0"
-        style={{ width: "clamp(130px, 24vw, 240px)", opacity: 0.72 }}
-      />
-      <img
-        src="/decoration/corner-left-bottom.png"
-        alt=""
-        aria-hidden
-        className="absolute bottom-0 left-0 pointer-events-none select-none z-0"
-        style={{ width: "clamp(130px, 24vw, 240px)", opacity: 0.72 }}
-      />
-
-      {/* Corner floral decoration - white */}
-      <div className="absolute left-0 top-0 z-0 pointer-events-none">
-        {/* <CloudinaryImage
-          src="/decoration/flower-decoration-left-bottom-corner2.png"
+      {/* Corner floral decoration */}
+      <div className="absolute inset-0 pointer-events-none z-[1]">
+        <CloudinaryImage
+          src="/decoration/corner-left-bottom.png"
           alt=""
           width={300}
           height={300}
-          className="w-auto h-auto max-w-[160px] sm:max-w-[200px] md:max-w-[240px] lg:max-w-[280px] opacity-60 scale-y-[-1]"
+          className="absolute top-0 left-0 w-auto h-auto max-w-[120px] sm:max-w-[160px] md:max-w-[200px]"
+          style={{ transform: "scaleY(-1)" }}
           priority={false}
-          style={{ filter: "brightness(0) invert(1)" }}
-        /> */}
-      </div>
-      <div className="absolute right-0 top-0 z-0 pointer-events-none">
-        {/* <CloudinaryImage
-          src="/decoration/flower-decoration-left-bottom-corner2.png"
+        />
+        <CloudinaryImage
+          src="/decoration/corner-left-bottom.png"
           alt=""
           width={300}
           height={300}
-          className="w-auto h-auto max-w-[160px] sm:max-w-[200px] md:max-w-[240px] lg:max-w-[280px] opacity-60 scale-x-[-1] scale-y-[-1]"
+          className="absolute top-0 right-0 w-auto h-auto max-w-[120px] sm:max-w-[160px] md:max-w-[200px]"
+          style={{ transform: "scaleX(-1) scaleY(-1)" }}
           priority={false}
-          style={{ filter: "brightness(0) invert(1)" }}
-        /> */}
-      </div>
-      <div className="absolute left-0 bottom-0 z-0 pointer-events-none">
-        {/* <CloudinaryImage
-          src="/decoration/flower-decoration-left-bottom-corner2.png"
+        />
+        <CloudinaryImage
+          src="/decoration/corner-left-bottom.png"
           alt=""
           width={300}
           height={300}
-          className="w-auto h-auto max-w-[160px] sm:max-w-[200px] md:max-w-[240px] lg:max-w-[280px] opacity-60"
+          className="absolute bottom-0 left-0 w-auto h-auto max-w-[120px] sm:max-w-[160px] md:max-w-[200px]"
           priority={false}
-          style={{ filter: "brightness(0) invert(1)" }}
-        /> */}
-      </div>
-      <div className="absolute right-0 bottom-0 z-0 pointer-events-none">
-        {/* <CloudinaryImage
-          src="/decoration/flower-decoration-left-bottom-corner2.png"
+        />
+        <CloudinaryImage
+          src="/decoration/corner-left-bottom.png"
           alt=""
           width={300}
           height={300}
-          className="w-auto h-auto max-w-[160px] sm:max-w-[200px] md:max-w-[240px] lg:max-w-[280px] opacity-60 scale-x-[-1]"
+          className="absolute bottom-0 right-0 w-auto h-auto max-w-[120px] sm:max-w-[160px] md:max-w-[200px]"
+          style={{ transform: "scaleX(-1)" }}
           priority={false}
-          style={{ filter: "brightness(0) invert(1)" }}
-        /> */}
+        />
       </div>
       
       {/* Monogram - centered at top */}

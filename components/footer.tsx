@@ -13,7 +13,7 @@ const palette = {
 export function Footer() {
   return (
     <footer
-      className="mt-20 border-t relative overflow-hidden"
+      className="relative overflow-hidden"
       style={{
         backgroundColor: 'color-mix(in srgb, var(--color-motif-cream) 94%, transparent)',
         borderColor: 'color-mix(in srgb, var(--color-motif-silver) 25%, transparent)',
@@ -34,7 +34,7 @@ export function Footer() {
           }}
         />
       </div>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-0 pb-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <h3
