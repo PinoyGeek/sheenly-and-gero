@@ -92,7 +92,7 @@ export default function Home() {
               <Countdown /> 
               <Gallery />
               <GuestList />
-<BookOfGuests />
+{/* <BookOfGuests /> */}
               <Messages />
               <Details />
               {/* <GuestInformation /> */}
