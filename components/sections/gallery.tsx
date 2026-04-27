@@ -5,8 +5,7 @@ import Link from "next/link"
 import { X, ChevronLeft, ChevronRight } from "lucide-react"
 import { Cormorant_Garamond, Cinzel } from "next/font/google"
 import { Section } from "@/components/section"
-import { CloudinaryImage } from "@/components/ui/cloudinary-image"
-import { getCloudinaryUrl } from "@/lib/cloudinary"
+import Image from "next/image"
 // Removed circular gallery in favor of a responsive masonry layout
 
 // Palette lives in globals.css → @theme inline → --color-motif-*
@@ -101,9 +100,9 @@ export function Gallery() {
   useEffect(() => {
     if (selectedImage) {
       const next = new window.Image()
-      next.src = getCloudinaryUrl(galleryItems[(currentIndex + 1) % galleryItems.length].image, { width: 1200 })
+      next.src = galleryItems[(currentIndex + 1) % galleryItems.length].image
       const prev = new window.Image()
-      prev.src = getCloudinaryUrl(galleryItems[(currentIndex - 1 + galleryItems.length) % galleryItems.length].image, { width: 1200 })
+      prev.src = galleryItems[(currentIndex - 1 + galleryItems.length) % galleryItems.length].image
     }
   }, [selectedImage, currentIndex])
 
@@ -139,7 +138,7 @@ export function Gallery() {
       >
       {/* Corner floral decoration - aligned with Details section */}
       <div className="absolute inset-0 pointer-events-none z-[1]">
-        <CloudinaryImage
+        <Image
           src="/decoration/corner-left-bottom.png"
           alt=""
           width={300}
@@ -148,7 +147,7 @@ export function Gallery() {
           style={{ transform: "scaleY(-1)", filter: GALLERY_DECO_FILTER }}
           priority={false}
         />
-        <CloudinaryImage
+        <Image
           src="/decoration/corner-left-bottom.png"
           alt=""
           width={300}
@@ -157,7 +156,7 @@ export function Gallery() {
           style={{ transform: "scaleX(-1) scaleY(-1)", filter: GALLERY_DECO_FILTER }}
           priority={false}
         />
-        <CloudinaryImage
+        <Image
           src="/decoration/corner-left-bottom.png"
           alt=""
           width={300}
@@ -166,7 +165,7 @@ export function Gallery() {
           style={{ filter: GALLERY_DECO_FILTER }}
           priority={false}
         />
-        <CloudinaryImage
+        <Image
           src="/decoration/corner-left-bottom.png"
           alt=""
           width={300}
@@ -241,8 +240,10 @@ export function Gallery() {
                         <div className="absolute -inset-0.5 rounded-lg opacity-0 group-active:opacity-100 transition-opacity duration-300 blur-sm" style={{ background: 'linear-gradient(to bottom right, color-mix(in srgb, var(--color-motif-accent) 30%, transparent), color-mix(in srgb, var(--color-motif-deep) 15%, transparent))' }} />
 
                         <div className="relative aspect-[3/4] overflow-hidden">
-                          <img
-                            src={getCloudinaryUrl(item.image, { width: 600, quality: "auto" })}
+                          <Image
+                            src={item.image}
+                            width={600}
+                            height={600}
                             alt={item.text || `Gallery image ${index + 1}`}
                             loading="lazy"
                             decoding="async"
@@ -278,7 +279,9 @@ export function Gallery() {
 
                       <div className="relative aspect-[3/4] md:aspect-square overflow-hidden">
                         <img
-                          src={getCloudinaryUrl(item.image, { width: 500, quality: "auto" })}
+                          src={item.image}
+                          width={500}
+                          height={500}
                           alt={item.text || `Gallery image ${index + 1}`}
                           loading="lazy"
                           decoding="async"
@@ -447,8 +450,10 @@ export function Gallery() {
                 className="relative inline-block max-w-full max-h-full"
                 onClick={(e) => e.stopPropagation()}
               >
-                <img
-                  src={getCloudinaryUrl(selectedImage.image || "/placeholder.svg", { width: 1200, quality: "auto" })}
+                <Image
+                  src={selectedImage.image || "/placeholder.svg"}
+                  width={1200}
+                  height={1200}
                   alt={selectedImage.text || "Gallery image"}
                   style={{ 
                     transform: `translate3d(${pan.x}px, ${pan.y}px, 0) scale(${zoomScale})`, 
